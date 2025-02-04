@@ -2,17 +2,16 @@
 <html>
 <head>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://unpkg.com/netlify-cms-app@latest/dist/netlify-cms-app.js"></script>
 </head>
 <body>
   <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", (user) => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
+    console.log("Trying to initialize CMS...");
+    if (window.CMS) {
+      CMS.init();
+      console.log("Netlify CMS loaded successfully.");
+    } else {
+      console.error("Netlify CMS failed to load.");
     }
   </script>
 </body>
