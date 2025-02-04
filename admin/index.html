@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="https://unpkg.com/decap-cms@3.6.1/dist/decap-cms.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decap CMS</title>
 </head>
 <body>
+
+  <script src="https://unpkg.com/@decapcms/identity-widget@latest"></script>
+  <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
+
   <script>
-    console.log("Trying to initialize CMS...");
-    if (window.CMS) {
-      CMS.init();
-      console.log("Netlify CMS loaded successfully.");
-    } else {
-      console.error("Netlify CMS failed to load.");
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+      console.log("Trying to initialize CMS...");
+
+      if (window.CMS) {
+        CMS.init();
+        console.log("Decap CMS loaded successfully.");
+      } else {
+        console.error("Decap CMS failed to load.");
+      }
+    });
   </script>
+
 </body>
 </html>
