@@ -1,18 +1,22 @@
 backend:
   name: git-gateway
-  branch: main  # Change to your default branch (e.g., "master" or "main")
+  branch: main  # Change this if your default branch is "master"
 
-media_folder: "assets/uploads"  # Where images & files are stored
-public_folder: "/uploads"       # Public URL path
+media_folder: "assets/uploads"  # Where uploaded images & files are stored
+public_folder: "/uploads"       # Public URL path for accessing media
 
 collections:
   - name: "posts"
-    label: "Posts"
+    label: "Blog Posts"
     folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm" }
+      - { label: "Author", name: "author", widget: "string", default: "Admin" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
 
-
+publish_mode: editorial_workflow  # Optional: Enables draft & review system
