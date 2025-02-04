@@ -1,2 +1,0 @@
-[build]
-  environment = { RUBY_VERSION = "3.3.7", BUNDLE_VERSION = "2.6.3" } # Ruby and Bundler versions
